@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-12 text-left">
+      <p class="fw-bolder mb-1">Game List</p>
+    </div>
+    <div class="col-6 text-left">
+      <input type="text" class="search-box">
+    </div>
+    <div class="col-6 text-right">
+      <button type="buton" class="btn btn-add" [routerLink]="'new-game'">New Game</button>
+    </div>
+  </div>
+  <div class="row" *ngIf="gameList.length==0">
+    <div class="col-12 text-center">
+      <p class="fw-bolder">no records found</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3 mt-3" *ngFor="let game of gameList">
+      <div class="row list-cart text-left">
+        <div class="col-12 mb-2">
+          <img [src]="game.imgUrl" class="w-100" style="border-radius: 15px">
+        </div>
+        <div class="col-12 mb-2">
+          <span class="fw-bolder ">Game Name: </span>
+          <span>{{game.name}}</span>
+        </div>
+        <div class="col-12 mb-2">
+          <span class="fw-bolder">Bundle: </span>
+          <span>{{game.bundle}}</span>
+        </div>
+        <div class="col-12 mb-2">
+          <span class="fw-bolder">Owner: </span>
+          <span>{{game.owner}}</span>
+        </div>
+        <div class="col-12">
+          <button class="btn btn-danger" (click)="deleteGame(game.id)">delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

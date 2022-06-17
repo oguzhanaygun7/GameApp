@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row mt-4 px-5">
+    <div class="col-7 mx-auto">
+      <p class="mb-0 fw-bolder">New Game</p>
+    </div>
+    <div class="col-7 mx-auto">
+      <form [formGroup]="newGameForm">
+        <div class="form-group">
+          <input placeholder="name" [class]="name?.invalid && name?.touched==true?'input-error':''"  type="text" class="new-game-input w-100" formControlName="gameName" required #gameName>
+          <div *ngIf="name?.invalid && name?.touched" style="margin-top: -10px">
+            <span class="feedback">the field is required</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <input placeholder="bundle" [class]="bundle?.invalid && bundle?.touched==true?'input-error':''" type="email" class="new-game-input w-100" formControlName="gameBundle" required #gameBundle>
+          <div *ngIf="bundle?.invalid && bundle?.touched" style="margin-top: -10px">
+            <span class="feedback">bundle is not valid</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <input placeholder="email" [class]="owner?.invalid && owner?.touched==true?'input-error':''" type="text" class="new-game-input w-100" formControlName="gameOwner" required #gameOwner>
+          <div *ngIf="owner?.invalid && owner?.touched" style="margin-top: -10px">
+            <span class="feedback">email is not valid</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="file" (change)="getFile($event)" formControlName="gameImage" required>
+        </div>
+      </form>
+    </div>
+    <div class="col-7 mx-auto mt-2">
+      <div class="row">
+        <div class="col-12 text-right">
+          <button class="btn btn-save" [disabled]="!newGameForm.valid" (click)="addGame(gameName.value, gameBundle.value, gameOwner.value)">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

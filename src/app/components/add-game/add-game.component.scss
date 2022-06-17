@@ -1,0 +1,24 @@
+.new-game-input{
+  height: 40px;
+  border-radius: 0px;
+  margin: 8px 0;
+  border: 1px solid #00000030;
+}
+
+.btn-save{
+  background-color: #c2c8c8;
+  color: #414141;
+  padding: 5px 15px;
+  border-radius: 15px;
+}
+
+.input-error {
+  border: red 1px solid;
+}
+
+.feedback{
+  color: red;
+  font-size: 12px;
+  margin-top: -10px;
+}
+
